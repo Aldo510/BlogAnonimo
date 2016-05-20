@@ -1,0 +1,16 @@
+<h1>Crea tu post aquí</h1>
+<!--Aqui ira la creacion de los blogs-->
+<form action='/post/new' method="post">
+  titulo:
+  <!--Si se le pone el required el campo no podra quedar vacio-->
+  <input class="caja" type="text" name="title" required title="Debes escribir algo">
+  Tag:
+  <input type="radio" name="tag" value="deportes" checked> Deportes
+  <input type="radio" name="tag" value="social"> Social
+  <input type="radio" name="tag" value="musica"> Música
+  <br>
+  <!--Con el title pones lo que saldra en el mensaje de erro-->
+  <textarea class="caja" rows="4" cols="50" name="content" placeholder="Escribe tu post here" required title="Debes escribir algo"></textarea>
+  <br> 
+  <input type="submit" value="Compartelo">
+</form>

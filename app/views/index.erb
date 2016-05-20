@@ -1,0 +1,54 @@
+<h1>Blog anonimo</h1>
+<p>Este es un espacio donde podras poner tus pensamientos y las cosas que se te ocurran</p>
+
+
+<!--Link para crear un post nuevo-->
+<center>
+  <a href="/post/new" class="myButton">Crear Post</a>
+</center>
+
+
+<!--Mostar solo los post por tags-->
+<hr>
+<center>
+  <form action="/post-tag" method="post">
+    <input type="radio" name="tag" value="deportes" checked> Deportes
+    <input type="radio" name="tag" value="social"> Social
+    <input type="radio" name="tag" value="musica"> Música
+    <div class="space"></div>
+    <input class="myButton2" type="submit" value="Buscar por tag">
+  </form>
+</center>
+
+<!--Aqui se mostraran los post solo por tag-->
+<% if @chose %>
+  <p>Tags de tu elección</p>
+  <% @chose.each do |post| %>
+    <div id = "select">
+      <p class="title"><%= post.title %></p>
+      <p class="title"><%= post.content %></p>
+      <a href="/post/edit_post/<%= post.id %>" class="boton2" >Editar</a>
+      <a href="/post/delete_post/<%= post.id %>" class="boton2">Eliminar</a>
+    </div>
+  <% end %>
+<% end %> 
+
+
+<!--Aqui se mostraran todos los post-->
+<hr>
+<h3>Mira los post anteriores</h3>
+
+<% if @all_post %>
+  <% @all_post.each do |post| %>
+    <div id = "colores">
+      <p class="title"><%= post.title %></p>
+      <p class="title"><%= post.content %></p>
+      <a href="/post/edit_post/<%= post.id %>" class="boton" >Editar</a>
+      <a href="/post/delete_post/<%= post.id %>" class="boton">Eliminar</a>
+      <br>
+      <hr>
+    </div>
+  <% end %>
+<% end %>
+
+  
